@@ -29,6 +29,7 @@ function Gamer(name) {
 
 function playTurn(gamerGroup) {
   var gamer = gamerGroup.gamers[gamerGroup.currentGamer];
+  $("#nameOutput").text(gamer.name + " is currently playing")
   var currentRoll = rollDice();
   console.log("Current Dice Roll: " + currentRoll);
   if(currentRoll === 1) {
@@ -38,13 +39,15 @@ function playTurn(gamerGroup) {
   } else {
     gamer.currentScore += currentRoll;
     gamer.diceRolled.push(currentRoll);
-    $(".output").text(gamer.diceRolled);
+    $("#diceOutput").text(gamer.diceRolled);
   }
 }
 
 function hold(gamerGroup) {
-
+  changeTurn(gamerGang);
   var gamer = gamerGroup.gamers[gamerGroup.currentGamer];
+  $("#nameOutput").text(gamer.name + " is currently playing")
+  $("#diceOutput").text(gamer.diceRolled);
   gamer.totalScore += gamer.currentScore;
   gamer.currentScore = 0;
 
@@ -98,14 +101,12 @@ function isGameRunning(gamerGroup) {
 //------------User Interface--------------
 $(document).ready(function(){
   var gamerGang = new Game;
-  var gamer1 = new Gamer("Jake");
-  var gamer2 = new Gamer("Alex");
-  gamerGang.addPlayer(gamer1);
-  gamerGang.addPlayer(gamer2);
-  console.log(gamerGang);
-
-  $("#addGamer").click(function() {
-    $("#gamerForm").show();
+  $("#gamerForm").submit(function(event) {
+    event.preventDefault();
+    var playerName = $("#newPlayer").val();
+    newPlayer = new Gamer(playerName);
+    gamerGang.addPlayer(newPlayer);
+    console.log(gamerGang);
   });
 
   $("#roll").click(function() {
@@ -117,7 +118,6 @@ $(document).ready(function(){
   $("#hold").click(function() {
     if(isGameRunning(gamerGang)) {
       hold(gamerGang);
-      changeTurn(gamerGang);
     }
   });
 

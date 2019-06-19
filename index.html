@@ -9,19 +9,24 @@
   </head>
   <body>
     <div class="container">
-      <button type="button" id="roll" name="roll">Roll</button>
-      <button type="button" id="hold" name="hold">Hold</button>
+      <div class="well">
+        <div class="inputGamer">
+          <form id="gamerForm">
+            <label for="newPlayer">New Player</label>
+            <input id="newPlayer" type="text" name="name">
+            <button type="submit" id="addGamer" name="button">Add a new Player!</button>
+          </form>
+        </div>
+      </div>
+      <div class="well">
 
-    </div>
-    <div class="inputGamer">
-      <form id="gamerForm">
-        <label for="newPlayer">New Player</label>
-        <input id="newPlayer" type="text" name="name">
-      </form>
-    </div>
-    <button type="button" id="addGamer" name="button">Add a new Player!</button>
-    <div class="output">
-
+        <button type="button" id="roll" class="gameButtons" name="roll">Roll</button>
+        <button type="button" id="hold" class="gameButtons" name="hold">Hold</button>
+      </div>
+      <div class="well">
+        <h3 id="nameOutput"></h3>
+        <p id="diceOutput"></p>
+      </div>
     </div>
   </body>
 </html>
