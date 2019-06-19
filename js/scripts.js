@@ -24,16 +24,10 @@ function Gamer(name) {
 
 //---------------GAME-----------------
 
-function pigDice(gamerGroup) {
-  while (gamerGroup.gamers[0].totalScore < 100 && gamerGroup.gamers[1].totalScore < 100) {
-
-  }
-}
-
 function playTurn(gamerGroup) {
   var gamer = gamerGroup.gamers[gamerGroup.currentGamer];
   var currentRoll = rollDice();
-  console.log(currentRoll);
+  console.log("Current Dice Roll: " + currentRoll);
   if(currentRoll === 1) {
     gamer.currentScore = 0;
     changeTurn(gamerGroup);
@@ -43,16 +37,17 @@ function playTurn(gamerGroup) {
 }
 
 function hold(gamerGroup) {
+
   var gamer = gamerGroup.gamers[gamerGroup.currentGamer];
-  console.log(gamer.totalScore, gamer.currentScore);
   gamer.totalScore += gamer.currentScore;
   gamer.currentScore = 0;
-  console.log(gamer.totalScore);
-  changeTurn(gamerGroup);
+
+  console.log("Current Gamers Total Score: " + gamer.totalScore, "Current Gamers Current Score: " + gamer.currentScore + "current gamer " + gamer.name);
+
 }
 
 function rollDice() {
-  return Math.floor(Math.random() * (7 - 1) + 1);
+  return Math.floor(Math.random() * (7 - 2) + 2);
 }
 
 function changeTurn(gamerGroup) {
@@ -71,7 +66,7 @@ function changeTurn(gamerGroup) {
 //shows winner, score and resets all scores to 0
 function endGame(gamerGroup) {
   var gamer = gamerGroup.gamers[gamerGroup.currentGamer];
-  console.log(gamer.name);
+  console.log(gamer.name + " is the winner");
 
   reset(gamerGroup);
 };
@@ -87,11 +82,11 @@ function reset(gamerGroup) {
 };
 
 function isGameRunning(gamerGroup) {
-  if(gamerGroup.gamers[0].totalScore + gamerGroup.gamers[0].currentScore < 10 && gamerGroup.gamers[1].totalScore + gamerGroup.gamers[0].currentScore < 10 ) {
-    console.log(gamerGroup.gamers[0].totalScore);
+  if(gamerGroup.gamers[0].totalScore + gamerGroup.gamers[0].currentScore < 10 && gamerGroup.gamers[1].totalScore + gamerGroup.gamers[1].currentScore < 10 ) {
     return true;
   } else {
     console.log("game end");
+    endGame(gamerGroup);
     return false;
   }
 }
@@ -110,14 +105,15 @@ $(document).ready(function(){
   console.log(gamerGang);
 
   $("#roll").click(function() {
-    if (isGameRunning(gamerGang)) {
+    if(isGameRunning(gamerGang)) {
       playTurn(gamerGang);
     }
 
   });
   $("#hold").click(function() {
-    if (isGameRunning(gamerGang)) {
+    if(isGameRunning(gamerGang)) {
       hold(gamerGang);
+      changeTurn(gamerGang);
     }
   });
 
