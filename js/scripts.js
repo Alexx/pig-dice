@@ -1,4 +1,6 @@
 //-----------Business Logic-------------
+const WinningScore = 100;
+
 function Game() {
   this.gamers = [];
   this.currentGamer = 0;
@@ -17,6 +19,7 @@ Game.prototype.assignID = function() {
 
 function Gamer(name) {
   this.name = name;
+  this.diceRolled = [];
   this.currentScore = 0;
   this.totalScore = 0;
 
@@ -30,9 +33,12 @@ function playTurn(gamerGroup) {
   console.log("Current Dice Roll: " + currentRoll);
   if(currentRoll === 1) {
     gamer.currentScore = 0;
+    gamer.diceRolled = [];
     changeTurn(gamerGroup);
   } else {
     gamer.currentScore += currentRoll;
+    gamer.diceRolled.push(currentRoll);
+    $(".output").text(gamer.diceRolled);
   }
 }
 
@@ -47,7 +53,7 @@ function hold(gamerGroup) {
 }
 
 function rollDice() {
-  return Math.floor(Math.random() * (7 - 2) + 2);
+  return Math.floor(Math.random() * (7 - 1) + 1);
 }
 
 function changeTurn(gamerGroup) {
@@ -59,8 +65,6 @@ function changeTurn(gamerGroup) {
   }
 }
 
-
-
 //-----------------------------
 
 //shows winner, score and resets all scores to 0
@@ -71,10 +75,10 @@ function endGame(gamerGroup) {
   reset(gamerGroup);
 };
 
-
 //restarts game
 function reset(gamerGroup) {
   gamerGroup.gamers.forEach(function(player) {
+    player.diceRolled = [];
     player.totalScore = 0;
     player.currentScore = 0;
   });
@@ -90,10 +94,6 @@ function isGameRunning(gamerGroup) {
     return false;
   }
 }
-
-
-
-
 
 //------------User Interface--------------
 $(document).ready(function(){
