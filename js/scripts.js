@@ -1,5 +1,5 @@
 //-----------Business Logic-------------
-const WinningScore = 100;
+const WinningScore = 10;
 
 function Game() {
   this.gamers = [];
@@ -86,13 +86,13 @@ function reset(gamerGroup) {
 };
 
 function isGameRunning(gamerGroup) {
-  if(gamerGroup.gamers[0].totalScore + gamerGroup.gamers[0].currentScore < 10 && gamerGroup.gamers[1].totalScore + gamerGroup.gamers[1].currentScore < 10 ) {
-    return true;
-  } else {
-    console.log("game end");
-    endGame(gamerGroup);
-    return false;
-  }
+    if(gamerGroup.gamers[gamerGroup.currentGamer].totalScore + gamerGroup.gamers[gamerGroup.currentGamer].currentScore < WinningScore) {
+      return true;
+    } else {
+      console.log("game end");
+      endGame(gamerGroup);
+      return false;
+    }
 }
 
 //------------User Interface--------------
@@ -103,6 +103,10 @@ $(document).ready(function(){
   gamerGang.addPlayer(gamer1);
   gamerGang.addPlayer(gamer2);
   console.log(gamerGang);
+
+  $("#addGamer").click(function() {
+    $("#gamerForm").show();
+  });
 
   $("#roll").click(function() {
     if(isGameRunning(gamerGang)) {
