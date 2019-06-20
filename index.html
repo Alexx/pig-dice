@@ -8,6 +8,7 @@
   <title>Pig Dice</title>
 </head>
 <body>
+
   <div class="header">
     <a href="#default" class="logo">Pig Dice Frenzy</a>
     <div class="header-right">
@@ -15,8 +16,9 @@
       <a class="btn-danger" id="resetButton" href="#home">Reset</a>
     </div>
   </div>
+
   <div class="container">
-    <div class="well inputGamer">
+    <div class="card bg-light inputGamer">
       <form id="gamerForm">
         <label for="newPlayer">New Player</label>
         <input id="newPlayer" type="text" name="name">
@@ -28,13 +30,13 @@
     </div>
 
     <div class="hiddenGame">
-      <div class="well">
-
+      <div class="card bg-light">
+        <div class="card-header">
+          <h2>Roll the dice!</h2>
+        </div>
         <div class="row">
-
           <div class="col-md-12">
             <div class="playGameButtons">
-
               <button type="button" id="roll" class="gameButtons" name="roll">Roll</button>
               <button type="button" id="hold" class="gameButtons" name="hold">Hold</button>
             </div>
@@ -42,7 +44,7 @@
 
         </div>
       </div>
-      <div class="well">
+      <div class="card bg-light" id="allOutput">
         <h3 id="nameOutput"></h3>
         <h2 id="totalScoreOutput"></h2>
         <h2 id="currentScoreOutput"></h2>
@@ -50,7 +52,19 @@
         <h2 id="rolledOneOutput"></h2>
       </div>
     </div>
+
+    <div id="gamerCards">
+      <div class="row">
+
+      </div>
+    </div>
+
   </div>
-</div>
+  <div class="footer">
+    <a href="#default">Pig Dice Frenzy - Jacob Irwin-Cline / Alex Siegberg 2019</a>
+    <div class="header-right">
+    </div>
+  </div>
+
 </body>
 </html>

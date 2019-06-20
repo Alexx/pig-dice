@@ -102,6 +102,19 @@ function displayInformation(gamerGroup) {
     $("#totalScoreOutput").text("Total Score: " + gamer.totalScore);
     $("#currentScoreOutput").text("Current Score: " + gamer.currentScore);
   }
+  displayGamers(gamerGroup);
+}
+
+function displayGamers(gamerGroup) {
+  var gamerCards = $("#gamerCards div");
+  var htmlForCards = "";
+
+  gamerGroup.gamers.forEach(function(gamer) {
+    console.log(gamer);
+    htmlForCards += "<div class='col-md-4'>" +
+    "<div class='card' style='width: 18rem;'> <img class='card-img-top' src='img/skeletor.jpeg' alt=''><div class='card-body'><p> Total Score: " + gamer.totalScore + "</p><div class='card-footer'>" + gamer.name + "</div></div></div></div>";
+  });
+  gamerCards.html(htmlForCards);
 }
 
 function isPlayerWinner(gamerGroup) {
@@ -132,6 +145,7 @@ $(document).ready(function(){
 
   $("#startButton").click(function() {
     checkPlayers(gamerGang);
+    displayGamers(gamerGang);
   });
 
   $("#roll").click(function() {

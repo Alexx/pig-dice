@@ -1,4 +1,45 @@
+body {
+  background-color: #f2f0ed;
+
+}
+
+.card {
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 10px;
+  padding: 0;
+  text-align: center;
+  border: 1px solid lightgrey;
+}
+
+.card-img-top {
+  height: 450px;
+  width: 250px;
+}
+
+.card-header{
+  padding-top: 10px;
+  padding-bottom: 3px;
+  background-color: #5488B5;
+  color: #f2f0ed;
+  border: #c23400;
+  border-bottom: 2px solid #2a2928;
+}
+.card-header h2 {
+  font-weight: bold;
+  color: #f2f0ed;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+#allOutput {
+  padding-top: 25px;
+}
+
 #gamerForm {
+  padding: 25px;
+}
+.card-img-top {
 
 }
 .gameButtons {
@@ -37,19 +78,34 @@
   color: white;
   margin-right: 10px;
 }
+/*----------------------footer--------------------*/
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #5488B5;
 
+  text-align: center;
+}
+.footer a {
+  color: #f2f0ed;
+}
 /*----------------header-------------------*/
 .header {
   overflow: hidden;
-  background-color: #f1f1f1;
+  background-color: #5488B5;
+  color: #fff;
   padding: 20px 10px;
   margin-bottom: 30px;
+  border-bottom: 2px solid #2a2928;
 }
 
 /* Style the header links */
 .header a {
   float: left;
-  color: black;
+  color: #f2f0ed;
   text-align: center;
   padding: 12px;
   text-decoration: none;
@@ -61,13 +117,13 @@
 /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
 .header a.logo {
   font-size: 25px;
-  font-weight: bold;
+  font-weight: bold ;
 }
 
 /* Change the background color on mouse-over */
 .header a:hover {
   background-color: #ddd;
-  color: black;
+  color: #f2f0ed;
 }
 
 /* Style the active/current link*/
