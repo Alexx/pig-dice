@@ -40,11 +40,14 @@ function playTurn(gamerGroup) {
     gamer.currentScore += currentRoll;
     gamer.diceRolled.push(currentRoll);
     $("#diceOutput").text(gamer.diceRolled);
+    if(isPlayerWinner(gamerGroup)) {
+      $("#nameOutput").text(gamer.name + " is the Winnner!!!");
+    }
   }
 }
 
 function hold(gamerGroup) {
-  changeTurn(gamerGang);
+  changeTurn(gamerGroup);
   var gamer = gamerGroup.gamers[gamerGroup.currentGamer];
   $("#nameOutput").text(gamer.name + " is currently playing")
   $("#diceOutput").text(gamer.diceRolled);
@@ -73,7 +76,7 @@ function changeTurn(gamerGroup) {
 //shows winner, score and resets all scores to 0
 function endGame(gamerGroup) {
   var gamer = gamerGroup.gamers[gamerGroup.currentGamer];
-  console.log(gamer.name + " is the winner");
+
 
   reset(gamerGroup);
 };
@@ -88,14 +91,23 @@ function reset(gamerGroup) {
 
 };
 
-function isGameRunning(gamerGroup) {
-    if(gamerGroup.gamers[gamerGroup.currentGamer].totalScore + gamerGroup.gamers[gamerGroup.currentGamer].currentScore < WinningScore) {
+function isPlayerWinner(gamerGroup) {
+    if(gamerGroup.gamers[gamerGroup.currentGamer].totalScore + gamerGroup.gamers[gamerGroup.currentGamer].currentScore > WinningScore) {
       return true;
-    } else {
       console.log("game end");
       endGame(gamerGroup);
+    } else {
       return false;
     }
+}
+function startGame() {
+  $(".hiddenGame").show();
+  $(".inputGamer").hide();
+}
+
+function resetGame() {
+  $(".hiddenGame").hide();
+  $(".inputGamer").show();
 }
 
 //------------User Interface--------------
@@ -109,16 +121,18 @@ $(document).ready(function(){
     console.log(gamerGang);
   });
 
-  $("#roll").click(function() {
-    if(isGameRunning(gamerGang)) {
-      playTurn(gamerGang);
-    }
+  $("#resetButton").click(function() {
 
   });
+  $("#startGameButton").click(function() {
+    startGame();
+  });
+  $("#roll").click(function() {
+      playTurn(gamerGang);
+  });
+
   $("#hold").click(function() {
-    if(isGameRunning(gamerGang)) {
       hold(gamerGang);
-    }
   });
 
   // while (gamerGang.gamers[0].totalScore < 10 && gamerGang.gamers[1].totalScore < 10) {

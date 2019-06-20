@@ -1,32 +1,51 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="js/jquery-3.4.1.js"></script>
-    <script src="js/scripts.js"></script>
-    <title>Pig Dice</title>
-  </head>
-  <body>
-    <div class="container">
-      <div class="well">
-        <div class="inputGamer">
-          <form id="gamerForm">
-            <label for="newPlayer">New Player</label>
-            <input id="newPlayer" type="text" name="name">
-            <button type="submit" id="addGamer" name="button">Add a new Player!</button>
-          </form>
-        </div>
-      </div>
-      <div class="well">
+<head>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/jquery-3.4.1.js"></script>
+  <script src="js/scripts.js"></script>
+  <title>Pig Dice</title>
+</head>
+<body>
+  <div class="header">
+    <a href="#default" class="logo">Pig Dice Frenzy</a>
+    <div class="header-right">
+      <a class="btn-info" id="startButton" href="#home">Start Game</a>
+      <a class="btn-danger" id="resetButton" href="#home">Reset</a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="well inputGamer">
+        <form id="gamerForm">
+          <label for="newPlayer">New Player</label>
+          <input id="newPlayer" type="text" name="name">
+          <button type="submit" id="addGamer" name="button">Add a new Player!</button>
+        </form>
+    </div>
 
-        <button type="button" id="roll" class="gameButtons" name="roll">Roll</button>
-        <button type="button" id="hold" class="gameButtons" name="hold">Hold</button>
-      </div>
-      <div class="well">
-        <h3 id="nameOutput"></h3>
-        <p id="diceOutput"></p>
+  </div>
+  <div class="hiddenGame">
+    <div class="well">
+
+      <div class="row">
+
+        <div class="col-md-12">
+          <div class="playGameButtons">
+
+            <button type="button" id="roll" class="gameButtons" name="roll">Roll</button>
+            <button type="button" id="hold" class="gameButtons" name="hold">Hold</button>
+          </div>
+        </div>
+
       </div>
     </div>
-  </body>
+    <div class="well">
+      <h3 id="nameOutput"></h3>
+      <p id="diceOutput"></p>
+      <h2 id="winnerOutput"></h2>
+    </div>
+  </div>
+</div>
+</body>
 </html>
