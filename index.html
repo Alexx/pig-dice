@@ -17,33 +17,38 @@
   </div>
   <div class="container">
     <div class="well inputGamer">
-        <form id="gamerForm">
-          <label for="newPlayer">New Player</label>
-          <input id="newPlayer" type="text" name="name">
-          <button type="submit" id="addGamer" name="button">Add a new Player!</button>
-        </form>
+      <form id="gamerForm">
+        <label for="newPlayer">New Player</label>
+        <input id="newPlayer" type="text" name="name">
+        <button type="submit" id="addGamer" name="button">Add a new Player!</button>
+      </form>
+    </div>
+    <div>
+      <h1 class="errorOutput text-center"></h1>
     </div>
 
-  </div>
-  <div class="hiddenGame">
-    <div class="well">
+    <div class="hiddenGame">
+      <div class="well">
 
-      <div class="row">
+        <div class="row">
 
-        <div class="col-md-12">
-          <div class="playGameButtons">
+          <div class="col-md-12">
+            <div class="playGameButtons">
 
-            <button type="button" id="roll" class="gameButtons" name="roll">Roll</button>
-            <button type="button" id="hold" class="gameButtons" name="hold">Hold</button>
+              <button type="button" id="roll" class="gameButtons" name="roll">Roll</button>
+              <button type="button" id="hold" class="gameButtons" name="hold">Hold</button>
+            </div>
           </div>
-        </div>
 
+        </div>
       </div>
-    </div>
-    <div class="well">
-      <h3 id="nameOutput"></h3>
-      <p id="diceOutput"></p>
-      <h2 id="winnerOutput"></h2>
+      <div class="well">
+        <h3 id="nameOutput"></h3>
+        <h2 id="totalScoreOutput"></h2>
+        <h2 id="currentScoreOutput"></h2>
+        <p id="diceOutput"></p>
+        <h2 id="rolledOneOutput"></h2>
+      </div>
     </div>
   </div>
 </div>
