@@ -21,7 +21,7 @@
     <div class="card bg-light inputGamer">
       <form id="gamerForm">
         <label for="newPlayer">New Player</label>
-        <input id="newPlayer" type="text" name="name">
+        <input id="newPlayer" type="text" name="name" autofocus="autofocus">
         <button type="submit" id="addGamer" name="button">Add a new Player!</button>
       </form>
     </div>
@@ -36,10 +36,51 @@
         </div>
         <div class="row">
           <div class="col-md-12">
-            <div class="playGameButtons">
-              <button type="button" id="roll" class="gameButtons" name="roll">Roll</button>
-              <button type="button" id="hold" class="gameButtons" name="hold">Hold</button>
+
+            <div class="newDice">
+              <div class="dice">
+              <div class="cube">
+                <div class="side front">
+                  <div class="point pxcenter pycenter one red"></div>
+                </div>
+                <div class="side top">
+                  <div class="point ptop pleft"></div>
+                  <div class="point ptop pright"></div>
+                  <div class="point pbottom pleft"></div>
+                  <div class="point pbottom pright"></div>
+                </div>
+                <div class="side left">
+                  <div class="point ptop pright"></div>
+                  <div class="point pbottom pleft"></div>
+                </div>
+                <div class="side right">
+                  <div class="point ptop pleft"></div>
+                  <div class="point ptop pright"></div>
+                  <div class="point pbottom pleft"></div>
+                  <div class="point pbottom pright"></div>
+                  <div class="point pxcenter pycenter"></div>
+                </div>
+                <div class="side bottom">
+                  <div class="red point ptop pright"></div>
+                  <div class="red point pbottom pleft"></div>
+                  <div class="red point pxcenter pycenter"></div>
+                </div>
+                <div class="side back">
+                  <div class="point ptop pleft"></div>
+                  <div class="point ptop pright"></div>
+                  <div class="point pycenter pleft"></div>
+                  <div class="point pycenter pright"></div>
+                  <div class="point pbottom pleft"></div>
+                  <div class="point pbottom pright"></div>
+                </div>
+              </div>
             </div>
+            <div class="option">
+
+              <div class="btn roll">Roll</div>
+              <div data-opt="solid" class="select btn">Hold</div>
+            </div>
+          </div>
           </div>
 
         </div>
@@ -60,6 +101,7 @@
     </div>
 
   </div>
+
   <div class="footer">
     <a href="#default">Pig Dice Frenzy - Jacob Irwin-Cline / Alex Siegberg 2019</a>
     <div class="header-right">
